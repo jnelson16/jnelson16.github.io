@@ -1,0 +1,52 @@
+---
+layout: page
+title: Resume
+description: My Experience and Skills
+background: '/img/bg-resume.jpg'
+---
+
+<h2 style="margin-top: 50px; margin-bottom: 20px;">Education</h2>
+{% for education in site.data.education %}
+    <b>{{ education.name }}</b>
+    <br>
+    <i>{{ education.dates }}</i>
+    <br>
+    {{ education.degree }}  
+    <br>
+    <br>
+{% endfor %}
+
+<h2 style="margin-top: 10px; margin-bottom: 20px;">Experience</h2>
+{% for work in site.data.experience %}
+    <b>{{ work.job_title }} – {{ work.company }}</b>
+    <br>
+    <i>{{ work.dates }}</i>
+    <br>
+    <ul>
+    {% for detail in work.description %}
+    <li>
+        {{ detail }}
+    </li>
+    {% endfor %}
+    </ul>
+<br>
+{% endfor %}
+
+<h2 style="margin-top: 10px; margin-bottom: 20px;">Programming Skills</h2>
+<ul>
+    {% for skill in site.data.skills %}
+    <li>
+        {{ skill.skill }}
+        {% if skill.subskills %}
+        <ul>
+        {% for subskill in skill.subskills %}
+        <li>
+            {{ subskill }}
+        </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+    <br>
+    {% endfor %}
+</ul>

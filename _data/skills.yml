@@ -1,0 +1,23 @@
+# Experience template
+- skill: Python
+  subskills:
+    - Data wrangling and cleaning using pandas.
+    - Producing data visualizations using matplotlib and seaborn.
+    - Statistical modeling and machine learning using scikit-learn and statsmodels.
+    - Web scraping using requests, Beautiful Soup, and Selenium.
+    - Predicting and discovering patterns in text using regular expressions.
+    - Building software infrastructure compliant with Pep8 style guide and coding standards.
+
+- skill: Amazon Web Services
+  subskills:
+    - Data management with RDS and S3.
+    - Building and running cloud-based software on EC2, Batch, and Lambda.
+    - Managing and monitoring products using Cloudwatch and Cloudfront.
+
+- skill: Building reproducible software products using Docker.
+
+- skill: Developing and delivering software and data products through the Scrum agile methodology.
+
+- skill: Maintaining code quality and version control using the GitHub platform.
+
+- skill: Data wrangling, cleaning, and management using SQL and R.

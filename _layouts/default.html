@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+
+{% include head.html %}
+
+<body>
+
+  {% if page.title == "Home" %}
+  {% include navbar-home.html %}
+  {% else %}
+  {% include navbar.html %}
+  {% endif %}
+
+  {{ content }}
+
+  {% include footer.html %}
+
+  {% include scripts.html %}
+
+  {% include google-analytics.html %}
+
+</body>
+
+</html>

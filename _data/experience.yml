@@ -1,0 +1,22 @@
+# Experience template
+- company: Mercatus Center at George Mason University
+  job_title: Software Developer
+  dates: February 2019 - present
+  description:
+    - Aiding in the development and improvement of the open-sourced QuantGov policy analytics platform, which uses text analysis and machine learning to create datasets from text. Updating the RegData project, which uses the QuantGov platform to analyze the Code of Federal Regulations and estimate the extent to which U.S. industries are regulated.
+    - Producing datasets for the State RegData project, which involves web scraping regulatory codes from state government websites, converting the documents to text, and using the QuantGov platform to analyze the text.
+    - Building various data and software products using a variety of different tools including Python, AWS products, SQL, and Docker.
+
+- company: Political Non-Profit
+  job_title: Data Analyst
+  dates: June 2018 - February 2019
+  description:
+    - Collected election and candidate data for use in political science research, primarily using Python to web scrape the data.
+    - Data cleaning, management, and validation using Python, SQL, and the Azure data management suite.
+
+- company: Mercatus Center
+  job_title: Program Coordinator and Python Developer
+  dates: August 2016 - June 2018
+  description:
+    - Various research assistance tasks, including gathering data for quantitative projects, producing literature reviews, and drafting charts.
+    - Coauthored and managed the production of the quarterly Economic Situation Report by economist Bruce Yandle, which involves drafting charts and original research on the economic and regulatory situation of various states.
