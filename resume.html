@@ -5,13 +5,15 @@ description: My Experience and Skills
 background: '/img/bg-resume.jpg'
 ---
 
-<h2 style="margin-top: 50px; margin-bottom: 20px;">Education</h2>
+<h2 style="margin-top: 50px;">Education</h2>
 {% for education in site.data.education %}
-    <b>{{ education.name }}</b>
+    <img src={{ education.img }} style="max-width: 30%; margin-top: 20px;" alt={{ education.name }}></img>
     <br>
     <i>{{ education.dates }}</i>
     <br>
-    {{ education.degree }}  
+    {{ education.degree }}
+    <br>
+    {{ education.detail }}
     <br>
     <br>
 {% endfor %}

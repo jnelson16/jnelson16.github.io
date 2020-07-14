@@ -1,10 +1,12 @@
 # Education Template
-- name: George Mason University
-  dates: August 2019 - May 2021
+- name: "George Mason University"
+  dates: August 2019 - May 2021 (expected)
   degree: M.A. Data Analytics
   detail: Predictive Analytics Concentration
+  img: '/img/gmu.jpg'
 
-- name: Grove City College
+- name: "Grove City College"
   dates: August 2016 - May 2016
   degree: B.A. Economics
-  detail: 
+  detail: Minors in Mathematics and Philosophy
+  img: '/img/gcc.jpg'
