@@ -7,7 +7,9 @@ background: '/img/bg-resume.jpg'
 
 <h2 style="margin-top: 50px;">Education</h2>
 {% for education in site.data.education %}
-    <img src={{ education.img }} style="max-width: 30%; margin-top: 20px;" alt={{ education.name }}></img>
+    <a href={{ education.url }} target="_blank">
+        <img src={{ education.img }} style="max-width: 30%; margin-top: 20px;" alt={{ education.name }}></img>
+    </a>
     <br>
     <i>{{ education.dates }}</i>
     <br>
@@ -18,7 +20,7 @@ background: '/img/bg-resume.jpg'
     <br>
 {% endfor %}
 
-<h2 style="margin-top: 10px; margin-bottom: 20px;">Experience</h2>
+<h2 style="margin-top: 10px; margin-bottom: 20px;">Work Experience</h2>
 {% for work in site.data.experience %}
     <b>{{ work.job_title }} – {{ work.company }}</b>
     <br>
