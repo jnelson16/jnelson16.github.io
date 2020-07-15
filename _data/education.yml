@@ -1,14 +1,14 @@
 # Education Template
 - name: "George Mason University"
   dates: August 2019 - May 2021 (expected)
-  degree: M.A. Data Analytics
+  degree: M.S. Data Analytics
   detail: Predictive Analytics Concentration
   img: '/img/gmu.jpg'
-  url: http://www.gmu.edu
+  url: https://catalog.gmu.edu/colleges-schools/engineering/data-analytics-engineering-ms/
 
 - name: "Grove City College"
   dates: August 2012 - May 2016
   degree: B.A. Economics
   detail: Minors in Mathematics and Philosophy
   img: '/img/gcc.jpg'
-  url: http://www.gcc.edu
+  url: http://www.gcc.edu/Home/Academics/Majors-Departments/Arts-Letters/Economics-Sociology/BA-in-Economics
