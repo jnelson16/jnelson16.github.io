@@ -2,7 +2,7 @@ title:              Jonathan Nelson
 description:        Python Programmer and Data Scientist
 author:             Jonathan Nelson
 baseurl:            "/"
-url:                "https://startbootstrap.github.io"
+url:                "https://jonathannelson.io"
 
 # Social Profiles
 twitter_username:   NelsonEcon16
@@ -10,11 +10,11 @@ github_username:    jnelson16
 linkedin_username:  jonathan-nelson-3056a462
 
 # Add your google-analytics ID here to activate google analytics
-google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+google_analytics:   UA-175200606-1
 
 # Build settings
 markdown:           kramdown
-paginate:           5
+paginate:           3
 paginate_path:      "/blog/page:num/"
 plugins:
   - jekyll-feed

@@ -7,7 +7,7 @@ background: '/img/blog/post 2.jpg'
 
 One of the hardest parts of data science is getting the data you need. If we are lucky, the data may be available in a csv or similar format on a website (like data from BEA or BLS). But more often, the data we want may be online, but with no obvious way of getting it. Thankfully, we can use Python to automate the retrieval and creation of data from online sources.
 
-In this post, I will explain the best ways to approach web scraping using tools in Python. In the next post, we will write a web scraping to extract data from this website.
+In this post, I will explain the best ways to approach web scraping using tools in Python. In the next post, we will write a web scraper to extract data from this website.
 
 ## What is web scraping?
 
