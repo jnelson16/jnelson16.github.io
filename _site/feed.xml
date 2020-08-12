@@ -1,90 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-12T13:55:33-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jonathan Nelson</title><subtitle>Python Programmer and Data Scientist</subtitle><author><name>Jonathan Nelson</name></author><entry><title type="html">Introduction to Web Scraping for Data Science Using Python</title><link href="http://localhost:4000/2020/08/12/webscraping.html" rel="alternate" type="text/html" title="Introduction to Web Scraping for Data Science Using Python" /><published>2020-08-12T00:00:00-04:00</published><updated>2020-08-12T00:00:00-04:00</updated><id>http://localhost:4000/2020/08/12/webscraping</id><content type="html" xml:base="http://localhost:4000/2020/08/12/webscraping.html">One of the hardest parts of data science is getting the data you need. If we are lucky, the data may be available in a csv or similar format on a website (like data from BEA or BLS). But more often, the data we want may be online, but with no obvious way of getting it. Thankfully, we can use Python to automate the retrieval and creation of data from online sources.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-12T15:06:15-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jonathan Nelson</title><subtitle>Python Programmer and Data Scientist</subtitle><author><name>Jonathan Nelson</name></author><entry><title type="html">Introduction to Web Scraping for Data Science Using Python</title><link href="http://localhost:4000/2020/08/12/webscraping.html" rel="alternate" type="text/html" title="Introduction to Web Scraping for Data Science Using Python" /><published>2020-08-12T00:00:00-04:00</published><updated>2020-08-12T00:00:00-04:00</updated><id>http://localhost:4000/2020/08/12/webscraping</id><content type="html" xml:base="http://localhost:4000/2020/08/12/webscraping.html">&lt;p&gt;One of the hardest parts of data science is getting the data you need. If we are lucky, the data may be available in a csv or similar format on a website (like data from BEA or BLS). But more often, the data we want may be online, but with no obvious way of getting it. Thankfully, we can use Python to automate the retrieval and creation of data from online sources.&lt;/p&gt;
 
-In this post, I will explain the best ways to approach web scraping using tools in Python. In the next post, we will write a web scraper to extract data from this website.
+&lt;p&gt;In this post, I will explain the best ways to approach web scraping using tools in Python. In the next post, we will write a web scraper to extract data from this website.&lt;/p&gt;
 
-## What is web scraping?
+&lt;h2 id=&quot;what-is-web-scraping&quot;&gt;What is web scraping?&lt;/h2&gt;
 
-Web scraping is the use of programmatic tools like Python to extract data or information from websites. Usually, web scrapers are written and employed when a large amount of data is needed, since it would take far too long to manually click through a website and extract or download all of the desired data.
+&lt;p&gt;Web scraping is the use of programmatic tools like Python to extract data or information from websites. Usually, web scrapers are written and employed when a large amount of data is needed, since it would take far too long to manually click through a website and extract or download all of the desired data.&lt;/p&gt;
 
-For example, in my day job at the Mercatus Center, I often write web scrapers to download the text of and extract other information from various regulatory codes, such as the [California Code of Regulations](https://govt.westlaw.com/calregs/Browse/Home/California/CaliforniaCodeofRegulations). In this case, there are far too many regulations to click through and download each one, let alone save the metadata associated with them. Thankfully, web scraping allows us to both download the text and organize it in a way that is useful for analysis down the road.
+&lt;p&gt;For example, in my day job at the Mercatus Center, I often write web scrapers to download the text of and extract other information from various regulatory codes, such as the &lt;a href=&quot;https://govt.westlaw.com/calregs/Browse/Home/California/CaliforniaCodeofRegulations&quot;&gt;California Code of Regulations&lt;/a&gt;. In this case, there are far too many regulations to click through and download each one, let alone save the metadata associated with them. Thankfully, web scraping allows us to both download the text and organize it in a way that is useful for analysis down the road.&lt;/p&gt;
 
-## Python tools
+&lt;h2 id=&quot;python-tools&quot;&gt;Python tools&lt;/h2&gt;
 
-We can use a variety of different Python tools, or libraries, to make web scraping easy. For a basic scraper, we can use just three libraries: **requests**, **BeautifulSoup** (from the bs4 library), and **pandas**.
+&lt;p&gt;We can use a variety of different Python tools, or libraries, to make web scraping easy. For a basic scraper, we can use just three libraries: &lt;strong&gt;requests&lt;/strong&gt;, &lt;strong&gt;BeautifulSoup&lt;/strong&gt; (from the bs4 library), and &lt;strong&gt;pandas&lt;/strong&gt;.&lt;/p&gt;
 
-Before we begin writing any code, make sure that Python is installed and on your path (type `python which` on your command line to confirm), and that `pip` is installed. Then pip-install the three libraries we will use (along with the **lxml** library, used by BeautifulSoup):
+&lt;p&gt;Before we begin writing any code, make sure that Python is installed and on your path (type &lt;code class=&quot;highlighter-rouge&quot;&gt;python which&lt;/code&gt; on your command line to confirm), and that &lt;code class=&quot;highlighter-rouge&quot;&gt;pip&lt;/code&gt; is installed. Then pip-install the three libraries we will use (along with the &lt;strong&gt;lxml&lt;/strong&gt; library, used by BeautifulSoup):&lt;/p&gt;
 
-```
-pip install bs4 lxml requests pandas
-```
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install bs4 lxml requests pandas
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-#### requests
+&lt;h4 id=&quot;requests&quot;&gt;requests&lt;/h4&gt;
 
-We use the [requests](https://requests.readthedocs.io/en/master/) library to download the actual content from the website. The most basic requests for our purposes here is the &quot;get&quot; request. The python code for a get request is the following:
+&lt;p&gt;We use the &lt;a href=&quot;https://requests.readthedocs.io/en/master/&quot;&gt;requests&lt;/a&gt; library to download the actual content from the website. The most basic requests for our purposes here is the “get” request. The python code for a get request is the following:&lt;/p&gt;
 
-```
-import requests
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import requests
 url = 'http://jonathannelson.io'
 content = requests.get(url).content
-```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-The &quot;content&quot; variable above will contain the raw html from the home page of this website. However, there isn't much we can do with raw html on its own, so now we turn to BeautifulSoup.
+&lt;p&gt;The “content” variable above will contain the raw html from the home page of this website. However, there isn’t much we can do with raw html on its own, so now we turn to BeautifulSoup.&lt;/p&gt;
 
-#### BeautifulSoup
+&lt;h4 id=&quot;beautifulsoup&quot;&gt;BeautifulSoup&lt;/h4&gt;
 
-We use BeautifulSoup to parse the raw html we got from the get request. BeautifulSoup comes from the [bs4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) library and can be either used as a submodule or imported explicitly (both shown in the code snippet below). The first step is to convert the content object from requests into a soup object:
+&lt;p&gt;We use BeautifulSoup to parse the raw html we got from the get request. BeautifulSoup comes from the &lt;a href=&quot;https://www.crummy.com/software/BeautifulSoup/bs4/doc/&quot;&gt;bs4&lt;/a&gt; library and can be either used as a submodule or imported explicitly (both shown in the code snippet below). The first step is to convert the content object from requests into a soup object:&lt;/p&gt;
 
-```
-import bs4
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import bs4
 soup = bs4.BeautifulSoup(content, 'lxml')
-```
-or
-```
-from bs4 import BeautifulSoup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from bs4 import BeautifulSoup
 soup = BeautifulSoup(content, 'lxml')
-```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-N.B.: The &quot;lxml&quot; argument above refers to the specific parser that BeautifulSoup will use to parse the HTML. &quot;lxml&quot; is the quickest parser, but will not work in every case. If BeautifulSoup returns incoherent results, try pip-installing **html5lib** and replacing &quot;lxml&quot; with &quot;html5lib&quot; in the BeautifulSoup call.
+&lt;p&gt;N.B.: The “lxml” argument above refers to the specific parser that BeautifulSoup will use to parse the HTML. “lxml” is the quickest parser, but will not work in every case. If BeautifulSoup returns incoherent results, try pip-installing &lt;strong&gt;html5lib&lt;/strong&gt; and replacing “lxml” with “html5lib” in the BeautifulSoup call.&lt;/p&gt;
 
-The &quot;soup&quot; variable above can be parsed in a variety of different ways. We can use it to find different html elements, such as &lt;table&gt;, &lt;a&gt;, or &lt;p&gt;, which can all be useful for parsing and extracting data and information from websites.
+&lt;p&gt;The “soup” variable above can be parsed in a variety of different ways. We can use it to find different html elements, such as &amp;lt;table&amp;gt;, &lt;a&gt;, or &amp;lt;p&amp;gt;, which can all be useful for parsing and extracting data and information from websites.&lt;/a&gt;&lt;/p&gt;
 
-Using the soup above (which is now a parsable version of the homepage of this website), we could extract my social media urls from the footer, using the following code:
+&lt;p&gt;Using the soup above (which is now a parsable version of the homepage of this website), we could extract my social media urls from the footer, using the following code:&lt;/p&gt;
 
-```
-urls = []
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;urls = []
 for link in soup.find('footer').find_all('a'):
     url = link['href']
     urls.append(url)
-```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-This code will give us a list of the urls in the footer. Not very useful on its own, but a good starting place. We will go into more detail on BeautifulSoup in the next post, but let's move on to pandas.
+&lt;p&gt;This code will give us a list of the urls in the footer. Not very useful on its own, but a good starting place. We will go into more detail on BeautifulSoup in the next post, but let’s move on to pandas.&lt;/p&gt;
 
-#### pandas
+&lt;h4 id=&quot;pandas&quot;&gt;pandas&lt;/h4&gt;
 
-The [pandas](https://pandas.pydata.org/docs/getting_started/index.html) library is the most commonly used Python library for creating, cleaning, and organizing data from a variety of sources. It is very useful for creating tabular data from websites.
+&lt;p&gt;The &lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/index.html&quot;&gt;pandas&lt;/a&gt; library is the most commonly used Python library for creating, cleaning, and organizing data from a variety of sources. It is very useful for creating tabular data from websites.&lt;/p&gt;
 
-One of the easiest ways to do this is to organize data into a list of lists, and then pass this list to pandas. For example, using the list of urls above:
+&lt;p&gt;One of the easiest ways to do this is to organize data into a list of lists, and then pass this list to pandas. For example, using the list of urls above:&lt;/p&gt;
 
-```
-import pandas as pd
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import pandas as pd
 df = pd.DataFrame(
     data=[urls],
     columns=['github', 'twitter', 'linkedin'])
-```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-This code will give us a very simple dataframe with three columns, each representing the three social media links in the footer of the website. In practice, you will likely build larger, more complex dataframes. Pandas then can be used to 
+&lt;p&gt;This code will give us a very simple dataframe with three columns, each representing the three social media links in the footer of the website. In practice, you will likely build larger, more complex dataframes. Pandas then can be used to do more intensive data manipulation and analysis (look for more posts on pandas in the future).&lt;/p&gt;
 
-#### Other Python tools
+&lt;h4 id=&quot;other-python-tools&quot;&gt;Other Python tools&lt;/h4&gt;
 
-There are a variety of other Python libraries that are useful for web scraping. Below is a short list and brief description of libraries I use frequently:
+&lt;p&gt;There are a variety of other Python libraries that are useful for web scraping. Below is a short list and brief description of libraries I use frequently:&lt;/p&gt;
 
-* [**re**](https://docs.python.org/3/library/re.html) - Regular expressions (or regexes) are invaluable for parsing and extracting text based on patterns. They can be used to organize text for use in tabular data. In the [California](https://govt.westlaw.com/calregs/Browse/Home/California/CaliforniaCodeofRegulations) example above, we can use a regex to separately extract the title number and name from the text in the links on the homepage. I often use [regex101.com](https://regex101.com) to write and test my regexes.
-* [**urllib**](https://docs.python.org/3/library/urllib.html) - Used to parse urls the same way a web browser does. One super useful function is `urllib.parse.urljoin()`.
-* [**datetime**](https://docs.python.org/3/library/datetime.html) - Used to keep track of dates and times. Since websites change frequently, when collecting data from the web, it is a good idea to include a &quot;date collected&quot; or similar column. Today's date can be found with the code `datetime.date.today()`.
-* [**time**](https://docs.python.org/3/library/time.html) - The most useful function in this library for webscraping is `time.sleep()`, which allows the user to cause the code to pause between calls. This is important for websites that may be slow to load or frequently return errors.
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/library/re.html&quot;&gt;&lt;strong&gt;re&lt;/strong&gt;&lt;/a&gt; - Regular expressions (or regexes) are invaluable for parsing and extracting text based on patterns. They can be used to organize text for use in tabular data. In the &lt;a href=&quot;https://govt.westlaw.com/calregs/Browse/Home/California/CaliforniaCodeofRegulations&quot;&gt;California&lt;/a&gt; example above, we can use a regex to separately extract the title number and name from the text in the links on the homepage. I often use &lt;a href=&quot;https://regex101.com&quot;&gt;regex101.com&lt;/a&gt; to write and test my regexes.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/library/urllib.html&quot;&gt;&lt;strong&gt;urllib&lt;/strong&gt;&lt;/a&gt; - Used to parse urls the same way a web browser does. One super useful function is &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib.parse.urljoin()&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/library/datetime.html&quot;&gt;&lt;strong&gt;datetime&lt;/strong&gt;&lt;/a&gt; - Used to keep track of dates and times. Since websites change frequently, when collecting data from the web, it is a good idea to include a “date collected” or similar column. Today’s date can be found with the code &lt;code class=&quot;highlighter-rouge&quot;&gt;datetime.date.today()&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/library/time.html&quot;&gt;&lt;strong&gt;time&lt;/strong&gt;&lt;/a&gt; - The most useful function in this library for webscraping is &lt;code class=&quot;highlighter-rouge&quot;&gt;time.sleep()&lt;/code&gt;, which allows the user to cause the code to pause between calls. This is important for websites that may be slow to load or frequently return errors.&lt;/li&gt;
+&lt;/ul&gt;
 
-## Summary
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 
-With only a few libraries, we can use Python write a web scraper to extract text and data from websites. A few other libraries can make our scrapers even more powerful. In the next post, we will write an actual web scraper of using all of the libraries above, and do some quick data analysis using pandas.</content><author><name>Jonathan Nelson</name></author><summary type="html">One of the hardest parts of data science is getting the data you need. If we are lucky, the data may be available in a csv or similar format on a website (like data from BEA or BLS). But more often, the data we want may be online, but with no obvious way of getting it. Thankfully, we can use Python to automate the retrieval and creation of data from online sources.</summary></entry><entry><title type="html">Welcome to jonathannelson.io!</title><link href="http://localhost:4000/2020/07/10/welcome.html" rel="alternate" type="text/html" title="Welcome to jonathannelson.io!" /><published>2020-07-10T00:00:00-04:00</published><updated>2020-07-10T00:00:00-04:00</updated><id>http://localhost:4000/2020/07/10/welcome</id><content type="html" xml:base="http://localhost:4000/2020/07/10/welcome.html">&lt;p&gt;Welcome to my blog! I am excited to start publishing tips and tricks of the Python and data science trade.&lt;/p&gt;
+&lt;p&gt;With only a few libraries, we can use Python write a web scraper to extract text and data from websites. A few other libraries can make our scrapers even more powerful. In the next post, we will write an actual web scraper of using all of the libraries above, and do some quick data analysis using pandas.&lt;/p&gt;</content><author><name>Jonathan Nelson</name></author><summary type="html">One of the hardest parts of data science is getting the data you need. If we are lucky, the data may be available in a csv or similar format on a website (like data from BEA or BLS). But more often, the data we want may be online, but with no obvious way of getting it. Thankfully, we can use Python to automate the retrieval and creation of data from online sources.</summary></entry><entry><title type="html">Welcome to jonathannelson.io!</title><link href="http://localhost:4000/2020/07/10/welcome.html" rel="alternate" type="text/html" title="Welcome to jonathannelson.io!" /><published>2020-07-10T00:00:00-04:00</published><updated>2020-07-10T00:00:00-04:00</updated><id>http://localhost:4000/2020/07/10/welcome</id><content type="html" xml:base="http://localhost:4000/2020/07/10/welcome.html">&lt;p&gt;Welcome to my blog! I am excited to start publishing tips and tricks of the Python and data science trade.&lt;/p&gt;
 
 &lt;p&gt;Check back soon for tutorials on web scraping, data cleaning, natural language processing, and more!&lt;/p&gt;</content><author><name>Jonathan Nelson</name></author><summary type="html">Welcome to my blog! I am excited to start publishing tips and tricks of the Python and data science trade.</summary></entry></feed>

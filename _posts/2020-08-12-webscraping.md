@@ -79,7 +79,7 @@ df = pd.DataFrame(
     columns=['github', 'twitter', 'linkedin'])
 ```
 
-This code will give us a very simple dataframe with three columns, each representing the three social media links in the footer of the website. In practice, you will likely build larger, more complex dataframes. Pandas then can be used to 
+This code will give us a very simple dataframe with three columns, each representing the three social media links in the footer of the website. In practice, you will likely build larger, more complex dataframes. Pandas then can be used to do more intensive data manipulation and analysis (look for more posts on pandas in the future).
 
 #### Other Python tools
 
