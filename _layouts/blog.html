@@ -2,6 +2,20 @@
 layout: default
 ---
 
+<style>
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+div.highlight {
+  background-color: #f2f2f2;
+}
+code {
+  color: black;
+}
+</style>
+
 <!-- Page Header -->
 {% if page.background %}
 <header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
