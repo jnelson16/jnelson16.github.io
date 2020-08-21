@@ -118,6 +118,16 @@ code {
     </div>
   </div>
 
+<!-- External links open new tabs -->
+<script>
+  const links = document.links;
+  for (var i = 0; i < links.length; i++) {
+    if (window.location.hostname != links[i].hostname) {
+      links[i].target = "_blank";
+    } 
+  }
+</script>
+
 
   <!-- Footer -->
 
