@@ -18,7 +18,7 @@ layout: default
             <span class="subheading">{{ site.description }}</span>
             {% endif %}
             <br>
-            <a href="/resume"><button class="btn btn-secondary">Check out my resume</button></a></button>
+            <a href="/resume"><button class="btn btn-secondary">Check out my resume</button></a>
           </div>
         </div>
       </div>
@@ -30,6 +30,7 @@ layout: default
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         
+        <h1 style="text-align:center"><br>Recent Blog Posts<hr></h1>
         <!-- Home Post List -->
         {% for post in site.posts limit : 3 %}
 
@@ -52,8 +53,8 @@ layout: default
         {% endfor %}
 
         <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+        <div class="clearfix" style="text-align:center">
+          <a class="btn btn-primary" href="/blog">View All Posts</a>
         </div>
 
 
