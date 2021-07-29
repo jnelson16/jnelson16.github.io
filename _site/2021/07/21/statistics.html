@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    Home - Jonathan Nelson
+    Statistical Fallacies in the Ohio Motorcycle Manual - Jonathan Nelson
     
   </title>
 
-  <meta name="description" content="Python Programmer and Data Scientist">
+  <meta name="description" content="On page 2 of the Ohio Department of Transportation’s Motorcycle Operator Manual, we find the following line:">
 
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/2021/07/21/statistics.html">
   <link rel="alternate" type="application/rss+xml" title="Jonathan Nelson" href="/feed.xml">
 
 </head>
@@ -34,6 +34,7 @@
   <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container">
+    <a class="navbar-brand" href="/">Jonathan Nelson</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa fa-bars"></i>
     </button>
@@ -50,108 +51,91 @@
         </li>
       </ul>
     </div>
-    <div class="collapse navbar-collapse"></div>
   </div>
 </nav>
 
   
 
-  <!-- Page Header -->
+  <style>
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+div.highlight {
+  background-color: #f2f2f2;
+}
+code {
+  color: black;
+}
+</style>
 
-<header class="masthead" style="background-image: url('/img/bg-index.jpg')">
+<!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/blog/post 3.jpg')">
   
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Jonathan Nelson</h1>
+          <div class="post-heading">
+            <h1>Statistical Fallacies in the Ohio Motorcycle Manual</h1>
             
-            <span class="subheading">Python Programmer and Data Scientist</span>
-            
-            <br>
-            <a href="/resume"><button class="btn btn-secondary">Check out my resume</button></a></button>
+            <span class="meta">
+              July 21, 2021 &middot; <span class="reading-time" title="Estimated read time">
+  
+   1 min  read </span>
+
+            </span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        
-        <!-- Home Post List -->
-        
 
-        <article class="post-preview">
-          <a href="/2021/07/21/statistics.html">
-            <h2 class="post-title">Statistical Fallacies in the Ohio Motorcycle Manual</h2>
-            
-            <h3 class="post-subtitle">On page 2 of the Ohio Department of Transportation’s Motorcycle Operator Manual, we find the...</h3>
-            
-          </a>
-          <p class="post-meta">
-            July 21, 2021 &middot; <span class="reading-time" title="Estimated read time">
-  
-   1 min  read </span>
-            
-          </p>
-        </article>
+        <p>On page 2 of the Ohio Department of Transportation’s <a href="https://publicsafety.ohio.gov/static/mop0001.pdf"><em>Motorcycle Operator Manual</em></a>, we find the following line:</p>
+
+<blockquote>
+  <p>Most crashes happen on short trips (less than five miles long), just a few minutes after starting out.</p>
+</blockquote>
+
+<p>This is most likely a <em>true</em> statement (though I was not able to find accident data based on trip length), but it is not something that that someone trained in statistics should find particularly interesting. Here’s why.</p>
+
+<p>The statement is talking about the total number of crashes by motorcyclists, not the likelihood of a crash for any particular ride. It is not saying that you are <em>more likely</em> to crash on a short trip, just that most crashes, a statisical majority, happen on short trips.</p>
+
+<p>This is not statistically interesting because most trips are short trips. Though I was not able to find data on the distribution of lengths of trips, we can assume that most trips on motorcycles are probably not long.</p>
+
 
         <hr>
 
-        
-
-        <article class="post-preview">
-          <a href="/2020/08/19/webscraping-tutorial.html">
-            <h2 class="post-title">Tutorial: Building a Web Scraper in Python</h2>
-            
-            <h3 class="post-subtitle">In the previous post, we discussed some of the basics of web scraping using Python....</h3>
-            
-          </a>
-          <p class="post-meta">
-            August 19, 2020 &middot; <span class="reading-time" title="Estimated read time">
-  
-   9 mins  read </span>
-            
-          </p>
-        </article>
-
-        <hr>
-
-        
-
-        <article class="post-preview">
-          <a href="/2020/08/12/webscraping.html">
-            <h2 class="post-title">Introduction to Web Scraping for Data Science Using Python</h2>
-            
-            <h3 class="post-subtitle">One of the hardest parts of data science is getting the data you need. If...</h3>
-            
-          </a>
-          <p class="post-meta">
-            August 12, 2020 &middot; <span class="reading-time" title="Estimated read time">
-  
-   8 mins  read </span>
-            
-          </p>
-        </article>
-
-        <hr>
-
-        
-
-        <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="/posts">View All Posts &rarr;</a>
-        </div>
 
+          
+          <a class="btn btn-secondary float-left" href="/2020/08/19/webscraping-tutorial.html" data-toggle="tooltip" data-placement="top" title="Tutorial: Building a Web Scraper in Python">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+
+        </div>
 
       </div>
     </div>
   </div>
-  
+
+<!-- External links open new tabs -->
+<script>
+  const links = document.links;
+  for (var i = 0; i < links.length; i++) {
+    if (window.location.hostname != links[i].hostname) {
+      links[i].target = "_blank";
+    } 
+  }
+</script>
+
 
   <!-- Footer -->
 
