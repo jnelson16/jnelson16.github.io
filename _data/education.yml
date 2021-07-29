@@ -1,8 +1,8 @@
 # Education Template
 - name: "George Mason University"
-  dates: August 2019 - May 2021 (expected)
+  dates: August 2019 - May 2021
   degree: M.S. Data Analytics
-  detail: Predictive Analytics Concentration
+  detail: "Capstone project: Built a DeepFake detector using convolutional neural networks. Project involved collecting images from online sources and webscraping; preprocessing the images using Python; and training, tuning, and validating the CNN model using keras."
   img: '/img/gmu.jpg'
   url: https://catalog.gmu.edu/colleges-schools/engineering/data-analytics-engineering-ms/
 
